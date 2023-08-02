@@ -9,7 +9,7 @@ Link to the project [Kettles](https://yana-shcherbyna.github.io/Kettles/) GitHub
 Link to layout [Kettles](https://www.figma.com/file/aQrySU5GdhjipMNWOBwa9v/Task?node-id=16%3A141&mode=dev) from the Figma.
 ***
 
-##Description
+## Description
 
 There is an active menu with links in the header section. The PRODUCTS tab is deployed using JavaScript, according to the layout.
 
