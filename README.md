@@ -4,10 +4,10 @@
 This is a website design project consisting of four pages. Made according to the layout from the Figma graphic editor.
 
 ***
-Link to the project [Kettles](https://yana-shcherbyna.github.io/Kettles/) GitHub Page.
+Link to the project [Kettles](https://yana-shcherbyna.github.io/Kettles/) GitHub Page. 
 
 Link to layout [Kettles](https://www.figma.com/file/aQrySU5GdhjipMNWOBwa9v/Task?node-id=16%3A141&mode=dev) from the Figma.
-***
+
 
 ## Description
 
