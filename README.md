@@ -5,10 +5,12 @@ This is a website design project consisting of four pages. Made according to the
 
 ***
 Link to the project [Kettles](https://yana-shcherbyna.github.io/Kettles/) GitHub Page.
+
 Link to layout [Kettles](https://www.figma.com/file/aQrySU5GdhjipMNWOBwa9v/Task?node-id=16%3A141&mode=dev) from the Figma.
 ***
 
 ##Description
+
 There is an active menu with links in the header section. The PRODUCTS tab is deployed using JavaScript, according to the layout.
 
 The site is optimized for mobile devices. As the page is zoomed, the content will reposition and resize, so that all elements are presented in the best possible way. The header section also changes. When you click on the "burger" menu icon, a menu with links is active. The PRODUCTS tab changes its location.
