@@ -1,4 +1,4 @@
-// випадаюче меню при кліку на посилання в header
+// drop-down menu when clicking on the link in the header
 const headerMenuLinks = document.querySelectorAll('.header__menuLink');
 const subMenu = document.querySelector('.header__subMenu');
 
@@ -16,7 +16,7 @@ document.body.addEventListener('click', function() {
     }
 })
 
-// випадаюче меню при кліку на бургер-меню в мобільній версії
+// drop-down menu when clicking in the burger-menu in the mobile version
 const menuIcon = document.querySelector('.header__mobileIcon');
 const mobileMenu = document.querySelector('.mobile__menu');
 
@@ -24,7 +24,7 @@ menuIcon.addEventListener('click', function() {
     mobileMenu.classList.toggle('hidden');
 })
 
-// випадаюче меню з header PRODUCTS
+// drop-dowm menu from header PRODUCTS
 const mobileMenuProducts = document.querySelector('#products');
 const mobileFromHeaderProducts = document.querySelector('.mobile__fromHeaderProduct');
 const mobileFromHeaderProductsBack = mobileFromHeaderProducts.querySelector('div');
@@ -41,9 +41,8 @@ function toggleClassHiddenFromMobileMenu () {
     mobileFromHeaderProducts.classList.toggle('hidden');
 }
 
-// випадаюче меню з header PRODUCTS (аккордіон)
+// drop-down menu from header PRODUCTS (accordion)
 const mobileFromHeaderAccordionItem = document.querySelectorAll('.mobile__fromHeaderAccordionItem');
-// const mobileFromHeaderAccordionMenu =document.querySelector('.mobile__fromHeaderAccordionMenu');
 Array.from(mobileFromHeaderAccordionItem);
 
 mobileFromHeaderAccordionItem.forEach(function(el) {
@@ -57,15 +56,8 @@ mobileFromHeaderAccordionItem.forEach(function(el) {
         accordionIteam.classList.toggle('active');
         accordionSubIteam.classList.toggle('hide');
             
-        if (!accordionSubIteam.classList.contains('hide')) {
-           
+        if (!accordionSubIteam.classList.contains('hide')) {           
             accordionIteam.parentElement.style.maxHeight += accordionSubIteam.scrollHeight + 'px';
-            
-        //     console.log(accordionIteam.parentElement.offsetHeight);
-        //     console.log(accordionIteam.parentElement.style.maxHeight);
-        //     console.log(accordionSubIteam.scrollHeight);
-        //     console.log(accordionIteam);
-        //     console.log(accordionSubIteam);
         }
     })
 })
