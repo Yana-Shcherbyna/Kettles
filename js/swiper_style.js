@@ -17,8 +17,6 @@ let pageSlider = new Swiper ('.page',{
 
     mousewheel: {
         sensitivity: 1,
-        // клас об"єкта на якому зпрацьовує колесо миші
-        // eventsTarget: ".image-slider"
     },
 
     // disabling the functionality if there are fewer slides than needed
