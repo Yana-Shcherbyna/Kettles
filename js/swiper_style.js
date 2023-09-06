@@ -1,54 +1,37 @@
 let wrapper = document.querySelector('.wrapper');
 
-// Настройки для слайдера
+// Settings for the slider
 let pageSlider = new Swiper ('.page',{
-    // свої класи
+    // my Classes
     wrapperClass: "page__wrapper",
     slideClass: "page__screen",
-    // вертикальний слайдер
     direction: 'vertical',
-    // кіл-ть слайдів
     slidesPerView: 'auto',
-    // паралакс ефект
     parallax: true,
 
-
-    // керування клавіатурою
     keyboard: {
-        // вкл./викл.
         enabled: true,
-        // вкл./викл. тільки коли слайдер в межах вьюпорта
         onlyInViewPort: true,
-        // вкл./викл. керування клавішами pageUp|pageDown
         pageUpDown: true,
     },
 
-    // керуванням мишею
     mousewheel: {
-        // чутливість колеса миші
         sensitivity: 1,
         // клас об"єкта на якому зпрацьовує колесо миші
         // eventsTarget: ".image-slider"
     },
 
-    // відключення функціоналу, якщо слайдів менше ніж потрібно
+    // disabling the functionality if there are fewer slides than needed
     watchOverflow: true,
-
-    // швидкість
+    
     speed: 800,
 
-    // оновити свайпер 
-    // при зміні елементів слайдера
-    observer: true,
-
-    // при зміні батьківськтих елементів слайдера
+    // updating slider 
+    observer: true,    
     observeParents: true,
-
-    // при зміні дочірніх елементів слайдера
     observeSlideChildren: true,
 
-    // Навігація
-    // Буллети, поточний стан, прогресбар
+    // Navigation
     pagination: {
         el: '.page__pagination',
         type: 'bullets',
@@ -57,50 +40,50 @@ let pageSlider = new Swiper ('.page',{
         bulletActiveClass: 'page__bullet_active',
     },
 
-    // Скролл
+    // Scroll
     scrollbar: {
         el: '.page__scroll',
         dragClass: "page__drag-scroll",
         draggable: true,
     },
 
-    // Потрібно вимкнути ініціалізацію для коректної роботи слайдера
+    // Disable initialization
     init: false,
 
-    // Подія
+    // Events
     on: {
-        // подія ініціалізації
+        // Event initialization
         init: function() {
-            // зміна слайдів зі зміною кольору bg меню навігації (мал.чайники)
+            // changing slides with color change bg navigation menu (small teapots)
             menuSlider ();
-            // ввімк/вимк вільний режим (з перевіркою висоти контенту)
+            // turn on/off free mode (with content height check)
             setScrollType ();
-            // запуск анімацій по класу _loaded при ініціалізації
+            // starting animations in the _loaded class
             wrapper.classList.add('_loaded');
-            // зміна прокрутки слайдера в залежності від розміру вікна
+            // changing the scrolling of the slider depending on the size of the window
             showHorizontalVerticalSliderDirection();            
         },
 
-        // подія зміни слайду
+        // Slide change event
         slideChange: function() {
-            // зміна кольору bg при зміні слайду
+            // bg color change when changing slide
             menuSliderRemove ();
             menuKettles.forEach(function(el){
                 el.children[pageSlider.realIndex].classList.add('_active');
             })
         },
         
-        // при зміні вікна браузера перевірка висоти контенту та ввімк/вимк вільний режим
+        //when changing the browser window, check the height of the content and turn on/off free mode
         resize: function () {
             setScrollType ();
-             // зміна прокрутки слайдера в залежності від розміру вікна
+             // changing the scrolling of the slider depending on the size of the window
              showHorizontalVerticalSliderDirection();
         },     
 
     },
 })
 
-// Зміна bg на меню навігації (мал.чайники)
+// Changing bg on the navigation menu (small teapots)
 let menuKettles = document.querySelectorAll('.screen__kettles')
 Array.from(menuKettles)
 
@@ -131,36 +114,36 @@ function menuSliderRemove (){
     }
 }
 
-// для звичайного Скроллу без Булітів
+// for normal Scroll without Bullets
 function setScrollType (){
-    // перевіряємо чи є у wrapper клас _free
+    // check whether the wrapper has the _free class
     if (wrapper.classList.contains('_free')) {
         wrapper.classList.remove('_free');
-        // вимикаємо вільний режим в слайдера
+        // turn off the free mode in the slider
         pageSlider.params.freeMode = false;
     }
     for (let i = 0; i < pageSlider.slides.length; i++) {
         const pageSlide = pageSlider.slides[i];
-        // шукаємо контент з класом screen__content
+        // search content whith screen__content class
         const pageSlideContent = pageSlide.querySelector('.screen__content');
-        // 
+        
         if (pageSlideContent) {
-            // вимірюємо висоту контенту 
+            // measure the height of the content
             const PageContentHight = pageSlideContent.offsetHeight;
-            // якщо висота контенту > за висоту вікна браузера
+            
             if (PageContentHight > window.innerHeight) {
-                // прибираємо Булітли
+                // clean Bullets
                 wrapper.classList.add('_free');
-                // вмикаємо вільний режим в слайдера
+                // turn on the free mode in the slider
                 pageSlider.params.freeMode = true;
-                // якщо хоч один контент більший за висоту вікнв браузера, перериваємо цикл
+                // if content is larger than the height of the browser window, we break the cycle
                 break;
             }
         }
     }
 }
 
-// зміна прокрутки (вертикально/горизонтально) слайдера в залежності від розміру вікна
+// changing the scrolling (vertical/horizontal) of the slider depending on the size of the window
 function showHorizontalVerticalSliderDirection(){
     if (window.innerWidth > 300 && window.innerWidth < 900) {
         pageSlider.changeDirection('horizontal', true);
@@ -169,5 +152,5 @@ function showHorizontalVerticalSliderDirection(){
     }
 }
 
-// Потрібно ввімкнути ініціалізацію (вручну) для коректної роботи слайдера
+// turn on initialization (manually) for the correct slider works
 pageSlider.init();
